@@ -1,0 +1,2 @@
+webpackJsonp([0xa6bc690a59e9],{854:function(e,t,a){"use strict";function l(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var n=a(1),u=l(n),o=a(50),r=l(o);t.default=function(){return u.default.createElement("div",{className:"c-content-box"},u.default.createElement(r.default,null,"404"),u.default.createElement("p",null,"There is no page you are looking for."))},e.exports=t.default}});
+//# sourceMappingURL=component---src-pages-404-jsx-3fb6b5fd6f79124f6259.js.map
