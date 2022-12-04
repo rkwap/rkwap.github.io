@@ -250,7 +250,7 @@ const Jobs = () => {
         {jobsData &&
           jobsData.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { title, url, company, range,location, tabTitle} = frontmatter;
+            const { title, url, company, range, location } = frontmatter;
 
             return (
               <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
@@ -273,11 +273,10 @@ const Jobs = () => {
 
                   {/* <p className="range">{range}</p> */}
                   <p className="range">
-                    {range} 
+                    {range}
                     <br></br>
                     {location}
                   </p>
-                
 
                   <div dangerouslySetInnerHTML={{ __html: html }} />
                 </StyledTabContent>

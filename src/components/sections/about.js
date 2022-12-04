@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
@@ -114,18 +113,6 @@ const StyledPic = styled.div`
 `;
 
 const About = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      avatar: file(sourceInstanceName: { eq: "images" }, relativePath: { eq: "ramit.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 500, traceSVG: { color: "#64ffda" }) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-          }
-        }
-      }
-    }
-  `);
-
   const revealContainer = useRef(null);
 
   useEffect(() => {
@@ -135,17 +122,20 @@ const About = () => {
   const skills = [
     'C/C++',
     'Python',
+    'Ruby',
     'PHP',
     'Flask',
     'Django',
+    'Ruby on Rails',
     'MySQL',
     'PostgreSQL',
     'MongoDB',
+    'Redis',
     'SQLite',
     'HTML & CSS',
     'Bootstrap',
     'Git',
-    'Postman',
+    'Postman API',
     'Nginx',
     'AWS',
     'Google Cloud',
@@ -154,26 +144,40 @@ const About = () => {
   ];
 
   return (
-    <StyledAboutSection id="about" ref={revealContainer}>
+    <StyledAboutSection id="intro" ref={revealContainer}>
       <h2 className="numbered-heading">About Me</h2>
 
       <div className="inner">
         <StyledText>
           <div>
-            <p>Hello! I'm Ramit, a senior year student based in Punjab, India.</p>
-
             <p>
-              I enjoy creating things that live on the internet, whether that be websites,
-              applications, or anything in between. My goal is to always build products that solves a certain problem and  provide
-              performant experiences.
+              Hello! I am Ramit. I'm currently a Software Engineer at{' '}
+              <a href="https://www.interviewbit.com" target="__blank">
+                InterviewBit
+              </a>{' '}
+              working on interesting and meaningful projects. I studied engineering in the field of
+              Electronics and Communication at the{' '}
+              <a href="https://www.thapar.edu" target="__blank">
+                Thapar Institute of Engineering and Technology
+              </a>
             </p>
-
             <p>
+              My interest in computers and programming started way back in 2008 when I used to play
+              Java and Symbian games on my dad's Nokia 6600. I started with Googling things and from
+              XML to WML, from HTML & CSS to PHP, Python, it's been a very long journey of learning
+              for me! In the past, I have created multiple projects and participated in many
+              hackathons. I have also worked at{' '}
+              <a href="https://www.zs.com" target="__blank">
+                ZS Associates
+              </a>{' '}
+              as an intern and had a lot of learning in just 6 months.
+            </p>
+            {/* <p>
               I am pursuing my B.E degree from {' '}
               <a href="https://thapar.edu" target="__blank">TIET, Patiala</a>.<br></br>
               I recently joined the Business Technology team at <a href="https://www.zs.com" target="__blank">ZS Associates</a> as an intern where I work
               on a wide variety of interesting and meaningful projects on a daily basis.
-            </p>
+            </p> */}
 
             <p>Here are a few tools and technologies I've have worked with:</p>
           </div>
@@ -185,7 +189,14 @@ const About = () => {
 
         <StyledPic>
           <div className="wrapper">
-            <Img fluid={data.avatar.childImageSharp.fluid} alt="Avatar" className="img" />
+            <StaticImage
+              className="img"
+              src="../../images/ramit.png"
+              width={500}
+              quality={95}
+              formats={['AUTO', 'WEBP', 'AVIF']}
+              alt="Headshot"
+            />
           </div>
         </StyledPic>
       </div>

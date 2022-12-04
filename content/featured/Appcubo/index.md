@@ -9,7 +9,7 @@ tech:
   - Flask
   - PostgreSQL
   - MongoDB
-showInProjects: true
+showInProjects: false
 ---
 
-A nicer look at your GitHub profile and repository stats with data visualizations of your top languages and stars. Sort through your top repos by number of stars, forks, and size.
+A web app that enables users to give easy feedback to app developers that include bug reports, update log, feature requests, discovery, and new releases.

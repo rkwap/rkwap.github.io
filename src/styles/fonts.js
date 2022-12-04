@@ -24,6 +24,36 @@ import SFMonoRegularItalicWoff2 from '@fonts/SFMono/SFMono-RegularItalic.woff2';
 import SFMonoSemiboldItalicWoff from '@fonts/SFMono/SFMono-SemiboldItalic.woff';
 import SFMonoSemiboldItalicWoff2 from '@fonts/SFMono/SFMono-SemiboldItalic.woff2';
 
+import KalamBoldWoff from '@fonts/Kalam/Kalam-Bold.woff';
+import KalamLightWoff from '@fonts/Kalam/Kalam-Light.woff';
+import KalamRegularWoff from '@fonts/Kalam/Kalam-Regular.woff';
+import KalamBoldWoff2 from '@fonts/Kalam/Kalam-Bold.woff2';
+import KalamLightWoff2 from '@fonts/Kalam/Kalam-Light.woff2';
+import KalamRegularWoff2 from '@fonts/Kalam/Kalam-Regular.woff2';
+
+import NanumPenScriptWoff from '@fonts/Nanum_Pen_Script/NanumPenScript-Regular.woff';
+import NanumPenScriptWoff2 from '@fonts/Nanum_Pen_Script/NanumPenScript-Regular.woff2';
+
+const kalamNormalWeights = {
+  300: [KalamLightWoff, KalamLightWoff2],
+  400: [KalamRegularWoff, KalamRegularWoff2],
+  700: [KalamBoldWoff, KalamBoldWoff2],
+};
+
+const nanumNormalWeights = {
+  400: [NanumPenScriptWoff, NanumPenScriptWoff2],
+};
+
+const kalam = {
+  name: 'Kalam',
+  normal: kalamNormalWeights,
+};
+
+const nanum = {
+  name: 'Nanum Pen Script',
+  normal: nanumNormalWeights,
+};
+
 const calibreNormalWeights = {
   400: [CalibreRegularWoff, CalibreRegularWoff2],
   500: [CalibreMediumWoff, CalibreMediumWoff2],
@@ -86,8 +116,11 @@ const calibreItalic = createFontFaces(calibre, 'italic');
 const sfMonoNormal = createFontFaces(sfMono);
 const sfMonoItalic = createFontFaces(sfMono, 'italic');
 
+const kalamNormal = createFontFaces(kalam);
+const nanumNormal = createFontFaces(nanum);
+
 const Fonts = css`
-  ${calibreNormal + calibreItalic + sfMonoNormal + sfMonoItalic}
+  ${calibreNormal + calibreItalic + sfMonoNormal + sfMonoItalic + kalamNormal + nanumNormal}
 `;
 
 export default Fonts;

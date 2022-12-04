@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
@@ -157,6 +157,7 @@ const Projects = () => {
               tech
               github
               external
+              date
             }
             html
           }
@@ -181,20 +182,49 @@ const Projects = () => {
   const firstSix = projects.slice(0, GRID_LIMIT);
   const projectsToShow = showMore ? projects : firstSix;
 
-  return (
-    
-    <StyledProjectsSection>
-      {/* <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+  function formatDate(d) {
+    const date = new Date(d);
 
-      <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
+    if (isNaN(date.getTime())) {
+      return d;
+    } else {
+      const month = new Array();
+      month[0] = 'January';
+      month[1] = 'February';
+      month[2] = 'March';
+      month[3] = 'April';
+      month[4] = 'May';
+      month[5] = 'June';
+      month[6] = 'July';
+      month[7] = 'August';
+      month[8] = 'September';
+      month[9] = 'October';
+      month[10] = 'November';
+      month[11] = 'December';
+
+      return `${month[date.getMonth()]  } ${  date.getFullYear()}`;
+    }
+  }
+
+  const textRight = {
+    color: '#64ffda',
+    textAlign: 'right',
+    marginLeft: 'auto',
+  };
+
+  return (
+    <StyledProjectsSection>
+      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+
+      {/* <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
         view the archive
-      </Link>
+      </Link> */}
 
       <TransitionGroup className="projects-grid">
         {projectsToShow &&
           projectsToShow.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { github, external, title, tech } = frontmatter;
+            const { github, external, title, tech, date } = frontmatter;
 
             return (
               <CSSTransition
@@ -217,12 +247,16 @@ const Projects = () => {
                         </div>
                         <div className="project-links">
                           {github && (
-                            <a href={github} aria-label="GitHub Link">
+                            <a href={github} target="__blank" aria-label="GitHub Link">
                               <Icon name="GitHub" />
                             </a>
                           )}
                           {external && (
-                            <a href={external} aria-label="External Link" className="external">
+                            <a
+                              href={external}
+                              target="__blank"
+                              aria-label="External Link"
+                              className="external">
                               <Icon name="External" />
                             </a>
                           )}
@@ -246,6 +280,9 @@ const Projects = () => {
                         </ul>
                       )}
                     </footer>
+                    <ul style={textRight} className="project-tech-list">
+                      <li key="0">{formatDate(date)}</li>
+                    </ul>
                   </div>
                 </StyledProject>
               </CSSTransition>
@@ -255,7 +292,7 @@ const Projects = () => {
 
       <button className="more-button" onClick={() => setShowMore(!showMore)}>
         Show {showMore ? 'Less' : 'More'}
-      </button> */}
+      </button>
     </StyledProjectsSection>
   );
 };

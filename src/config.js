@@ -22,8 +22,6 @@ module.exports = {
       name: 'Codechef',
       url: 'https://codechef.com/users/rkwap',
     },
-    
-
   ],
 
   navLinks: [

@@ -25,7 +25,7 @@ const Icon = ({ name }) => {
     case 'Codepen':
       return <IconCodepen />;
     case 'Codechef':
-      return <IconCodechef />;  
+      return <IconCodechef />;
     case 'External':
       return <IconExternal />;
     case 'Folder':

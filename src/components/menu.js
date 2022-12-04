@@ -254,13 +254,19 @@ const Menu = () => {
               <ol>
                 {navLinks.map(({ url, name }, i) => (
                   <li key={i}>
-                    <Link to={url}>{name}</Link>
+                    <Link to={url} onClick={() => setMenuOpen(false)}>
+                      {name}
+                    </Link>
                   </li>
                 ))}
               </ol>
             )}
 
-            <a href="/resume.pdf" className="resume-link">
+            <a
+              href="https://drive.google.com/file/d/1jaBSgVmsfZdSo3idq67MLsetVLNKQ8gL/view"
+              target="_blank"
+              className="resume-link"
+              rel="noreferrer">
               Resume
             </a>
           </nav>

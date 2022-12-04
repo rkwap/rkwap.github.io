@@ -33,8 +33,6 @@ const StyledLoader = styled.div`
         opacity: 0;
       }
     }
-
-    
   }
 `;
 

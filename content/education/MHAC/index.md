@@ -1,5 +1,5 @@
 ---
-date: '2021-01-04'
+date: '2016-01-04'
 title: '12TH (AISSCE)'
 tabTitle: 'High School'
 company: 'M.H.A.C School, Nagbani'
@@ -8,4 +8,3 @@ range: '2015 - 2016'
 url: 'http://mhacnagbani.com/'
 marks: 'Aggregate Percentage: 83.8%'
 ---
-

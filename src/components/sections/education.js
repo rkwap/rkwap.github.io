@@ -251,7 +251,7 @@ const Education = () => {
         {educationData &&
           educationData.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { title, url, company, range, tabTitle,location, marks } = frontmatter;
+            const { title, url, company, range, location, marks } = frontmatter;
 
             return (
               <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
@@ -264,22 +264,20 @@ const Education = () => {
                   hidden={activeTabId !== i}>
                   <h3>
                     <span className="company">
-                      <a href={url} className="inline-link"target="__blank" >
+                      <a href={url} className="inline-link" target="__blank">
                         {company}
                       </a>
-                    </span><br></br>
+                    </span>
+                    <br></br>
                     <span>{title}</span>
                   </h3>
-                
                   <p className="range">
-                    {range} 
+                    {range}
                     <br></br>
                     {location}
                     <br></br>
                     {marks}
                   </p>
-                
-
                   <div dangerouslySetInnerHTML={{ __html: html }} />
                 </StyledTabContent>
               </CSSTransition>
