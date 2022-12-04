@@ -1,7 +1,7 @@
 ---
 date: '2021-07-06'
-title: 'Software Engineer Intern'
-tabTitle: 'InterviewBit'
+title: 'Software Engineer'
+tabTitle: 'Scaler'
 company: 'Scaler by InterviewBit'
 location: 'Bengaluru, Karnataka'
 range: 'July 2021 - Present'
